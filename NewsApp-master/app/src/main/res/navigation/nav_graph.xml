@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recentsNewsFragment">
+
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.peculiaruc.newsapp.ui.fragments.ArticleFragment"
+        android:label="Articles"
+        tools:layout="@layout/fragment_article" >
+        <argument
+            android:name="article"
+            app:argType="com.peculiaruc.newsapp.model.Article" />
+    </fragment>
+    <fragment
+        android:id="@+id/recentsNewsFragment"
+        android:name="com.peculiaruc.newsapp.ui.fragments.RecentsNewsFragment"
+        android:label="Recent News"
+        tools:layout="@layout/fragment_recents_news" >
+        <action
+            android:id="@+id/action_recentsNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/savedNewsFragment"
+        android:name="com.peculiaruc.newsapp.ui.fragments.SavedNewsFragment"
+        android:label="Saved News"
+        tools:layout="@layout/fragment_saved_news"
+        app:enterAnim="@anim/slide_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articleFragment2"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/searchNewsFragment"
+        android:name="com.peculiaruc.newsapp.ui.fragments.SearchNewsFragment"
+        android:label="Search News"
+        tools:layout="@layout/fragment_search_news" >
+        <action
+            android:id="@+id/action_searchNewsFragment_to_articleFragment2"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+</navigation>
