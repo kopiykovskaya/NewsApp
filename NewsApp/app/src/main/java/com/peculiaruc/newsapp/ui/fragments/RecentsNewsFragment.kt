@@ -31,19 +31,7 @@ class RecentsNewsFragment : Fragment(R.layout.fragment_recents_news) {
         setUpRecyclerView()
         openNewsUrl()
 
-        //put the article into a bundle and attach the bundle it to the navigation component
-        //the navigation component will then handle the transition and pass the argument to the articlefragment
-//        newsAdapter.setOnItemClickListener {
-//            val bundle = Bundle().apply {
-//                putSerializable("article", it)
-//            }
-//            findNavController().navigate(
-//                R.id.action_recentsNewsFragment_to_articleFragment,
-//                bundle
-//            )
-//        }
 
-        //call recent news lifedata
         viewModel.recentNews.observe(viewLifecycleOwner, Observer { response ->
             when(response) {
                 is  Resource.Success ->{
@@ -81,7 +69,7 @@ class RecentsNewsFragment : Fragment(R.layout.fragment_recents_news) {
         }
     }
 
-    //setup recyclerView
+
     private fun setUpRecyclerView() {
         newsAdapter = NewsAdapter()
         recyclerView_recent.apply {

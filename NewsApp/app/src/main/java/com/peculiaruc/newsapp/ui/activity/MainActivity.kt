@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val viewModelProviderFactory = NewsViewModelFactory(newsRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsVeiwModel::class.java)
 
-        //Initialize bottom navigation
+
         val bottomNavigationView: BottomNavigationView = binding.bottomNavigationView
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navhostFragment) as NavHostFragment
@@ -38,10 +38,10 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf( R.id.recentsNewsFragment, R.id.searchNewsFragment, R.id.savedNewsFragment)
         )
-    //    setupActionBarWithNavController(navController, appBarConfiguration)
+
 
         bottomNavigationView.setupWithNavController(navController)
     }
-  //      bottomNavigationView.setupWithNavController(navhostFragment.findNavController())
+
 
 }

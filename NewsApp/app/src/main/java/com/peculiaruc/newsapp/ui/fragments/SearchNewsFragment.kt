@@ -29,8 +29,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
         viewModel = (activity as MainActivity).viewModel
         setUpRecyclerView()
 
-        //put the article into a bundle and attach the bundle it to the navigation component
-        //the navigation component will then handle the transition and pass the argument to the articlefragment
+
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
                 putSerializable("article", it)
@@ -40,7 +39,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 bundle
             )
         }
-        //handle search functionality. Add a little delay while search. Use coroutine job for this
+
         var job: Job? = null
         searchIcon.addTextChangedListener { editsearch ->
             job?.cancel()
@@ -54,7 +53,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
             }
         }
 
-        //call recent news lifedata
+
         viewModel.searchNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Success -> {
@@ -85,7 +84,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
         searchProgressBar.visibility = View.VISIBLE
     }
 
-    //setup recyclerView
+
     private fun setUpRecyclerView() {
         newsAdapter = NewsAdapter()
         recyclerView_search.apply {

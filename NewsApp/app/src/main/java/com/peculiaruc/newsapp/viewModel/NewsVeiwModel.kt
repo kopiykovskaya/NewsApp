@@ -22,12 +22,12 @@ class NewsVeiwModel( private val  newsRepository: NewsRepository): ViewModel() {
         getrecentNews("us")
     }
 
-    //function to get the recent nws from the API
+
 
    fun getrecentNews(countryCode: String) =
        viewModelScope.launch {
         recentNews.postValue(Resource.Loading())
-        //make network response
+
         val response = newsRepository.getRecentNews(countryCode, pageNum)
     recentNews.postValue(handleRecentNewsResponse(response))
 
@@ -40,7 +40,7 @@ class NewsVeiwModel( private val  newsRepository: NewsRepository): ViewModel() {
             searchNews.postValue(handleSearchNewsResponse(response))
         }
 
-    //function to handle the response & pagination
+
     private fun handleRecentNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
         if (response.isSuccessful){
             response.body()?.let { resultResponse ->

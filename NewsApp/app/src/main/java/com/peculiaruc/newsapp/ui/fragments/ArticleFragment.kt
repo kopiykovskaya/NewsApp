@@ -16,20 +16,19 @@ import kotlinx.android.synthetic.main.fragment_article.*
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
     private lateinit var viewModel: NewsVeiwModel
-    //to get the argument as a global variable, do this
+
     val args: ArticleFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = (activity as MainActivity).viewModel
-        //get the articles
-       // val article = args.article
 
-        // display the article in the webview
+
+
         webView.apply {
             webViewClient = WebViewClient()
-          //  loadUrl(article.url)
+
         }
 
 

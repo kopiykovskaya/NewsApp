@@ -24,8 +24,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         viewModel = (activity as MainActivity).viewModel
         setUpRecyclerView()
 
-        //put the article into a bundle and attach the bundle it to the navigation component
-        //the navigation component will then handle the transition and pass the argument to the articlefragment
+
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
                 putSerializable("article", it)
@@ -37,7 +36,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         }
     }
 
-    //setup recyclerView
+
     private fun setUpRecyclerView() {
         newsAdapter = NewsAdapter()
         saveReclycle_view.apply {
